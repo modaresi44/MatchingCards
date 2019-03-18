@@ -1,0 +1,78 @@
+* { 
+	box-sizing: border-box; 
+}
+h1, main, h2, h3, h4, header, nav, #div_main_img {
+	text-align: center;
+}
+body { 
+	background-image: url("../images/background2.jpeg");
+	width: 98%;
+	margin: auto;
+}
+
+#h1_main_title {
+	font-weight: bold;
+	font-size: 3.5em;
+	text-shadow: 0.05em 0.05em 0.07em red;
+	height: 0.7em;
+}
+main {
+	width: 90%;
+	margin: auto;
+}
+table{
+	width: 90%;
+	margin: auto;
+	border-spacing: 1.2em;
+}
+table td {
+	padding: 0.3em;
+	background-color: #909497;
+	box-shadow: 0.3em 0.3em 0.4em #888888;
+	width: 14.2857143%;
+}
+
+table td:hover {
+	background-color: #154360;
+	/*box-shadow: 0.3em 0.3em 0.3em #154360;
+	/*padding: 0.1em 0.1384058em;*/
+	/* 191*.1/138=0.1384058, em=.1 138X191=dimontion of the picture*/
+}
+
+[id*="img_"] {
+	max-width: 100%;
+	height: auto;
+}
+
+/*
+table td:nth-child(1) { width:14.2857143%;} /* 100/7=14.2857143 <tr> has 7 items 
+table td:nth-child(2) { width:14.2857143%;}
+
+ /*table tr:nth-child(1) { height: 400px;}*/
+
+nav ul {list-style-type: none;}
+nav li {display: inline;} 
+nav li a:hover{color: blue; font-weight: bold;}
+nav a {padding-right: 15px;}
+
+#div_won {
+	display: none;
+	text-align: center;
+}
+
+#p_won {
+	font-family: 'BioRhyme Expanded', serif;
+	font-style: italic;
+	font-size: 6em;
+	text-shadow: 0.1em 0.1em 0.1em yellow;
+}
+
+#btn_play{
+	font-size: 2em;
+	background-color: #AED6F1;
+	text-shadow: 0.08em 0.08em yellow;
+	box-shadow: 0.4em 0.4em 0.5em #111111;
+	padding: 0.6em 1em;
+}
+
+ 
