@@ -18,116 +18,59 @@
 		</nav>
 	</header>
 	<main>
+		<div>Time: <span id="time"></span></div>
 		<button type="button" id="btn_play" onclick="startNewGame()" >Start Game!</button>
 		<!--
 		<button type="button" onclick="showArray()" >Show array_arrange</button>
 		<button type="button" onclick="showArrayLogoId()" >Show array_logoId</button>
 		<button type="button" onclick="testShowBack()" >Show back cards</button>
-	-->
-
+		-->
 
 		<table id="tbl_main" >
 			<tr>
-				<td id="td_00"><img id="img_00" onmousedown="cardMDown(this)" onmouseup="cardMUP(this)" />
-				</td>
-				<td  id="td_01"> 
-					<img id="img_01" onmousedown="cardMDown(this)" onmouseup="cardMUP(this)"
-					 /> <!-- onmouseleave="cardMLeave(this)" onmouseover="cardMOver(this)"/>-->
-				</td>
-				<td id="td_02"> 
-					<img id="img_02" onmousedown="cardMDown(this)" onmouseup="cardMUP(this)"/>
-				</td>
-				<td  id="td_03"> 
-					<img id="img_03" onmousedown="cardMDown(this)" onmouseup="cardMUP(this)"/>
-				</td>
-				<td  id="td_04"> 
-					<img id="img_04" onmousedown="cardMDown(this)" onmouseup="cardMUP(this)"/>
-				</td>
-				<td  id="td_05"> 
-					<img id="img_05" onmousedown="cardMDown(this)" onmouseup="cardMUP(this)"/>
-				</td>
-				<td  id="td_06"> 
-					<img id="img_06" onmousedown="cardMDown(this)" onmouseup="cardMUP(this)"/>
-				</td>
+				<td id="td_00"><img id="img_00" /></td>
+				<td id="td_01"><img id="img_01" /></td>
+				<td id="td_02"><img id="img_02" /></td>
+				<td id="td_03"><img id="img_03" /></td>
+				<td id="td_04"><img id="img_04" /></td>
+				<td id="td_05"><img id="img_05" /></td>
+				<td id="td_06"><img id="img_06" /></td>
 			</tr>
 			<tr>
-				<td id="td_07">
-					<img id="img_07" onmousedown="cardMDown(this)" onmouseup="cardMUP(this)" />
-				</td>
-				<td  id="td_08"> 
-					<img id="img_08" onmousedown="cardMDown(this)" onmouseup="cardMUP(this)"/>
-				</td>
-				<td id="td_09"> 
-					<img id="img_09" onmousedown="cardMDown(this)" onmouseup="cardMUP(this)"/>
-				</td>
-				<td  id="td_10"> 
-					<img id="img_10" onmousedown="cardMDown(this)" onmouseup="cardMUP(this)"/>
-				</td>
-				<td  id="td_11"> 
-					<img id="img_11" onmousedown="cardMDown(this)" onmouseup="cardMUP(this)"/>
-				</td>
-				<td  id="td_12"> 
-					<img id="img_12" onmousedown="cardMDown(this)" onmouseup="cardMUP(this)"/>
-				</td>
-				<td  id="td_13"> 
-					<img id="img_13" onmousedown="cardMDown(this)" onmouseup="cardMUP(this)"/>
-				</td>
+				<td id="td_07"><img id="img_07" /></td>
+				<td id="td_08"><img id="img_08" /></td>
+				<td id="td_09"><img id="img_09" /></td>
+				<td id="td_10"><img id="img_10" /></td>
+				<td id="td_11"><img id="img_11" /></td>
+				<td id="td_12"><img id="img_12" /></td>
+				<td id="td_13"><img id="img_13" /></td>
 			</tr>
 			<tr>
-				<td id="td_14"> 
-					<img id="img_14" onmousedown="cardMDown(this)" onmouseup="cardMUP(this)" />
-				</td>
-				<td  id="td_15"> 
-					<img id="img_15" onmousedown="cardMDown(this)" onmouseup="cardMUP(this)" />
-				</td>
-				<td id="td_16"> 
-					<img id="img_16" onmousedown="cardMDown(this)" onmouseup="cardMUP(this)"  />
-				</td>
-				<td  id="td_17"> 
-					<img id="img_17" onmousedown="cardMDown(this)" onmouseup="cardMUP(this)"  />
-				</td>
-				<td  id="td_18"> 
-					<img id="img_18" onmousedown="cardMDown(this)" onmouseup="cardMUP(this)"  />
-				</td>
-				<td  id="td_19"> 
-					<img id="img_19" onmousedown="cardMDown(this)" onmouseup="cardMUP(this)"  />
-				</td>
-				<td  id="td_20"> 
-					<img id="img_20" onmousedown="cardMDown(this)" onmouseup="cardMUP(this)"  />
-				</td>
+				<td id="td_14"><img id="img_14" /></td>
+				<td id="td_15"><img id="img_15" /></td>
+				<td id="td_16"><img id="img_16" /></td>
+				<td id="td_17"><img id="img_17" /></td>
+				<td id="td_18"><img id="img_18" /></td>
+				<td id="td_19"><img id="img_19" /></td>
+				<td id="td_20"><img id="img_20" /></td>
 			</tr>
 			<tr>
-				<td id="td_21"> 
-					<img id="img_21" onmousedown="cardMDown(this)" onmouseup="cardMUP(this)"  />
-				</td>
-				<td  id="td_22"> 
-					<img id="img_22" onmousedown="cardMDown(this)" onmouseup="cardMUP(this)"  />
-				</td>
-				<td id="td_23"> 
-					<img id="img_23" onmousedown="cardMDown(this)" onmouseup="cardMUP(this)"  />
-				</td>
-				<td  id="td_24"> 
-					<img id="img_24" onmousedown="cardMDown(this)" onmouseup="cardMUP(this)"  />
-				</td>
-				<td  id="td_25"> 
-					<img id="img_25" onmousedown="cardMDown(this)" onmouseup="cardMUP(this)"  />
-				</td>
-				<td  id="td_26"> 
-					<img id="img_26" onmousedown="cardMDown(this)" onmouseup="cardMUP(this)"  />
-				</td>
-				<td  id="td_27"> 
-					<img id="img_27" onmousedown="cardMDown(this)" onmouseup="cardMUP(this)" />
-				</td>
+				<td id="td_21"><img id="img_21" /></td>
+				<td id="td_22"><img id="img_22" /></td>
+				<td id="td_23"><img id="img_23" /></td>
+				<td id="td_24"><img id="img_24" /></td>
+				<td id="td_25"><img id="img_25" /></td>
+				<td id="td_26"><img id="img_26" /></td>
+				<td id="td_27"><img id="img_27" /></td>
 			</tr>
 		</table>
 		<div id="div_won">
 			<p id="p_won">You Won!</p>
+			<p id="p_end">You finished in : <spam id="spam_won"></spam>  by <samp id="spam_try"></samp> tries</p>
 		</div>
 		
 	</main>
-	<footer>
-		
-	</footer>
+	 
 	<script type="text/javascript" src="js/match.js"></script>
 </body>
 </html>

@@ -75,4 +75,12 @@ nav a {padding-right: 15px;}
 	padding: 0.6em 1em;
 }
 
+#p_end{
+	font-size: 2em;
+}
+
+#spam_won, #spam_try{
+	color: blue;
+ }
+
  

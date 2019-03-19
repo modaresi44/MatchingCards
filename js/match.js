@@ -4,6 +4,7 @@ var NUM_CARDS = 28; // number of total cards
 var SRC_BACKCARDS = "images/back4.jpg";
 var SRC_BACKDOWN = "images/back5.jpg";  
 var SRC_SELECTED="images/back5.jpg";
+var TRY = 0;
 
 var status = 0;
 var selected_imgId = "";
@@ -16,7 +17,7 @@ var array_logo = [
 	{"src" : "images/logos/logo1.jpeg",  "tag" : "0"},
 	{"src" : "images/logos/logo2.jpeg",  "tag" : "0"},
 	{"src" : "images/logos/logo3.png",   "tag" : "0"},
-	{"src" : "images/logos/logo4.jpeg",  "tag" : "0"},
+	{"src" : "images/logos/logo4.jpg",  "tag" : "0"},
 	{"src" : "images/logos/logo5.png",   "tag" : "0"},
 	{"src" : "images/logos/logo6.jpeg",  "tag" : "0"},
 	{"src" : "images/logos/logo7.png",   "tag" : "0"},
@@ -48,7 +49,17 @@ var array_logo = [
 function init(){
 	document.getElementById("tbl_main").style.display = "none";
 	document.getElementById("div_won").style.display = "none";
+	show();
 	makeArrayArrange(NUM_CARDS, array_arrange); 
+
+	// ---------------Create on-events for images
+	for(var num = 0; num < NUM_CARDS; num++){
+		var id = getImgId(num);
+    	var obj = document.getElementById(id);
+		obj.addEventListener("mousedown", cardMDown.bind(null, obj));
+		obj.addEventListener("mouseup", cardMUP.bind(null,obj));
+	}
+
 	//window.addEventListener("resize", windowResize);
 }
 
@@ -77,6 +88,7 @@ function setImagesHeight(){
 }
 
 function startNewGame(){
+	reset();
 	document.getElementById("btn_play").style.display = "none";
 	document.getElementById("div_won").style.display = "none";
  	initArrayArrange(NUM_CARDS);
@@ -100,6 +112,8 @@ function showBackAllCards(cards, srcBack){
 		document.getElementById(imgId).removeAttribute('disabled');
 
  	}
+ 	reset()
+ 	start()
 }
 
 function getImgId(num){
@@ -218,6 +232,7 @@ function cardMUP(obj){
 	if( status_temp == 1 && obj.id != selected_imgId ){ 
 			//two selected cards are not in the same place.	
 			// show front of two cards for few seconds.
+			TRY += 1;
 			var num1 = getNumberFromImgId(obj.id);
 			var num2 = getNumberFromImgId(selected_imgId);
 			document.getElementById(obj.id).src = array_logo[array_arrange[num1]].src;
@@ -256,7 +271,10 @@ function waitSecondsThenContinue(imgId1, imgId2){
 		if(num_exist_cards == 0){
 			// game finished and you won.
 			document.getElementById("tbl_main").style.display = "none";
+			document.getElementById("spam_won").innerHTML = document.getElementById("time").innerHTML;
+			document.getElementById("spam_try").innerHTML = TRY;
 			document.getElementById("div_won").style.display = "block";
+			stop();
 		}
 	} else{
 		//the two selected cards have different pictures so deselect them
@@ -290,5 +308,92 @@ function showArrayLogo(){
 	alert(str1);
 }
 
+//-----------Stopwatch-------------------------------------------------------------
+var	clsStopwatch = function() {
+		// Private vars
+		var	startAt	= 0;	// Time of last start / resume. (0 if not running)
+		var	lapTime	= 0;	// Time on the clock when last stopped in milliseconds
+
+		var	now	= function() {
+				return (new Date()).getTime(); 
+			}; 
+ 
+		// Public methods
+		// Start or resume
+		this.start = function() {
+				startAt	= startAt ? startAt : now();
+			};
+
+		// Stop or pause
+		this.stop = function() {
+				// If running, update elapsed time otherwise keep it
+				lapTime	= startAt ? lapTime + now() - startAt : lapTime;
+				startAt	= 0; // Paused
+			};
+
+		// Reset
+		this.reset = function() {
+				lapTime = startAt = 0;
+			};
+
+		// Duration
+		this.time = function() {
+				return lapTime + (startAt ? now() - startAt : 0); 
+			};
+	};
+
+var x = new clsStopwatch();
+var $time;
+var clocktimer;
+
+function pad(num, size) {
+	var s = "0000" + num;
+	return s.substr(s.length - size);
+}
+
+function formatTime(time) {
+	var h = m = s = ms = 0;
+	var newTime = '';
+
+	h = Math.floor( time / (60 * 60 * 1000) );
+	time = time % (60 * 60 * 1000);
+	m = Math.floor( time / (60 * 1000) );
+	time = time % (60 * 1000);
+	s = Math.floor( time / 1000 );
+	//ms = time % 1000;
+	ms = time % 100;
+
+
+	//newTime = pad(h, 2) + ':' + pad(m, 2) + ':' + pad(s, 2) + ':' + pad(ms, 3);
+	newTime = pad(h, 2) + ':' + pad(m, 2) + ':' + pad(s, 2) + ':' + pad(ms, 1);
+
+	return newTime;
+}
+
+function show() {
+	$time = document.getElementById('time');
+	update();
+}
+
+function update() {
+	$time.innerHTML = formatTime(x.time());
+}
+
+function start() {
+	clocktimer = setInterval("update()", 1);
+	x.start();
+}
+
+function stop() {
+	x.stop();
+	clearInterval(clocktimer);
+}
+
+function reset() {
+	stop();
+	x.reset();
+	update();
+}
+//----------------------------------------------------------------------------------
 
 
